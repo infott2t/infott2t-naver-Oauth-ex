@@ -1,0 +1,83 @@
+spring.application.name=springboot
+
+# ==========================================================
+# [설정 가이드]
+# 이 파일을 같은 경로에 "application.properties" 이름으로 복사한 뒤,
+# 아래의 YOUR_... 항목에 본인의 실제 값을 입력해 주세요.
+# (실제 application.properties 파일은 .gitignore 에 등록되어 GitHub에 올라가지 않습니다.)
+# ==========================================================
+
+# JSP 설정 (기존 형식 유지)
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+# H2 파일 DB 설정 (재시작 후에도 회원정보 유지, 별도 DB 설치 불필요)
+spring.datasource.url=jdbc:h2:file:./data/springbootdb;AUTO_SERVER=TRUE
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+# H2 웹 콘솔 (/h2-console)
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+# JPA 설정
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.open-in-view=false
+
+# ==========================================================
+# 이메일 6자리 인증 발송 설정 (SMTP)
+# ==========================================================
+# false = 실제 메일 발송 / true = 개발 모드(SMTP 없이 화면 및 콘솔에 인증번호 출력)
+# ※ SMTP 설정 없이 빠르게 테스트하려면 true 로 변경하세요.
+app.mail.mock-enabled=false
+
+# [옵션 1] 네이버 메일 SMTP (포트 465, SSL 보안연결)
+# - 사전 준비: 네이버 메일 > 환경설정 > POP3/IMAP 설정 > IMAP/SMTP 사용함
+# - 2단계 인증 사용 시: 네이버 계정 > 보안설정 > 애플리케이션 비밀번호 생성 후 아래 password 에 입력
+spring.mail.host=smtp.naver.com
+spring.mail.port=465
+# 본인 네이버 이메일 주소를 입력하세요. (예: example@naver.com)
+spring.mail.username=YOUR_NAVER_EMAIL@naver.com
+# 네이버 계정 비밀번호 또는 2단계 인증용 애플리케이션 비밀번호를 입력하세요.
+spring.mail.password=YOUR_NAVER_APP_PASSWORD
+# 발신자 이메일 주소 (일반적으로 spring.mail.username 과 동일하게 입력)
+app.mail.from=YOUR_NAVER_EMAIL@naver.com
+spring.mail.default-encoding=UTF-8
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.ssl.enable=true
+spring.mail.properties.mail.smtp.ssl.trust=smtp.naver.com
+spring.mail.properties.mail.smtp.connectiontimeout=5000
+spring.mail.properties.mail.smtp.timeout=5000
+spring.mail.properties.mail.smtp.writetimeout=5000
+
+# [옵션 2] Gmail SMTP를 사용하려면 위 네이버 설정을 주석 처리하고 아래 주석을 해제하세요.
+# - 사전 준비: Google 계정 > 보안 > 2단계 인증 활성화 > 앱 비밀번호(16자리) 발급
+# spring.mail.host=smtp.gmail.com
+# spring.mail.port=587
+# spring.mail.username=YOUR_GMAIL_ADDRESS@gmail.com
+# spring.mail.password=YOUR_16CHAR_GOOGLE_APP_PASSWORD
+# app.mail.from=YOUR_GMAIL_ADDRESS@gmail.com
+# spring.mail.default-encoding=UTF-8
+# spring.mail.properties.mail.smtp.auth=true
+# spring.mail.properties.mail.smtp.starttls.enable=true
+# spring.mail.properties.mail.smtp.starttls.required=true
+# spring.mail.properties.mail.smtp.ssl.trust=smtp.gmail.com
+
+# ==========================================================
+# 네이버 간편로그인 (OAuth 2.0) 설정
+# ==========================================================
+# - 발급 위치: 네이버 개발자센터 (https://developers.naver.com/) > Application > 애플리케이션 등록
+# - 사용 API: 네이버 로그인 (회원이름, 이메일 주소 등 필요 권한 체크)
+# - 서비스 URL: http://localhost:8080
+# - Callback URL: http://localhost:8080/oauth/naver/callback
+#
+# false = 실제 네이버 OAuth 로그인 / true = 로컬 Mock(가상) 네이버 로그인 화면 사용
+app.naver.mock-enabled=false
+# 네이버 개발자센터에서 발급받은 Client ID 를 입력하세요.
+app.naver.client-id=YOUR_NAVER_CLIENT_ID
+# 네이버 개발자센터에서 발급받은 Client Secret 을 입력하세요.
+app.naver.client-secret=YOUR_NAVER_CLIENT_SECRET
+# 네이버 개발자센터에 등록한 Callback URL 과 동일하게 입력해야 합니다.
+app.naver.redirect-uri=http://localhost:8080/oauth/naver/callback

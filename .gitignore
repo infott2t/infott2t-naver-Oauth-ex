@@ -1,0 +1,50 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Sensitive Configuration ###
+# 실제 SMTP 비밀번호 및 네이버 OAuth 시크릿이 포함된 설정 파일 제외
+# (src/test/resources/application.properties 는 테스트용 목 설정이므로 유지)
+src/main/resources/application.properties
+
+### Local H2 Database Files ###
+# 로컬 실행 시 생성되는 H2 파일 DB (테스트 회원 정보 보호)
+data/
+
+### Tooling / Auto-generated ###
+.github/modernize/
+
