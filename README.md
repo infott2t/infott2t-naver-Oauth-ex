@@ -122,3 +122,9 @@ Copy-Item src\main\resources\application.properties.example src\main\resources\a
 - `/welcome` : 로그인 후 마이페이지 (참고 정보 수정)
 - `/admin/members` : 관리자 전용 전체 회원 조회
 - `/h2-console` : H2 데이터베이스 웹 콘솔
+
+---
+
+## 라이선스
+
+이 프로젝트는 [MIT License](LICENSE)를 따릅니다.
